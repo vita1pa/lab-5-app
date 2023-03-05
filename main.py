@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import warnings
-from Solutions import *
+from Solution import *
 
 warnings.filterwarnings('ignore')
 
