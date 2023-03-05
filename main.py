@@ -43,7 +43,7 @@ if col2.button('Run', key='run'):
         p = {
             'm':weights.shape[0],
             'n':estimations.shape[0],
-            'weights': weights,
+            'weights': weights.T,
             'estimations': estimations
         }
         
