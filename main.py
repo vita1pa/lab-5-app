@@ -35,8 +35,12 @@ if col2.button('Run', key='run'):
         
         print(probabilities_file)
         print(weights_file)
-        
-        solution = Solution()
+        p = {'m':2, 
+            'n':3, 
+            'weights':[1, 1], 
+            'estimations': [[0.3, 0.5],[ 0.7, 0.5], [ 0.4, 0.1]]
+        }
+        solution = Solution(p)
         
         
 
