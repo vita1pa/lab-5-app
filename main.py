@@ -33,8 +33,8 @@ if col2.button('Run', key='run'):
             'Trust coefficient (%)'   
         ]
         
-        print(probabilities_file)
-        print(weights_file)
+        print(len(probabilities_file))
+        print(len(weights_file))
         p = {'m':2, 
             'n':3, 
             'weights':[1, 1], 
