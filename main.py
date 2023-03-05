@@ -32,15 +32,12 @@ if col2.button('Run', key='run'):
             '$$L_4$$ error ( Monte-Carlo scenario simulation error ) (%)',
             'Trust coefficient (%)'   
         ]
+        estimations = pd.read_excel(probabilities_file)
+        weights = pd.read_excel(weights_file)
         
-        print(len(probabilities_file))
-        print(len(weights_file))
-        p = {'m':2, 
-            'n':3, 
-            'weights':[1, 1], 
-            'estimations': [[0.3, 0.5],[ 0.7, 0.5], [ 0.4, 0.1]]
-        }
-        solution = Solution(p)
+        print(weights.head())
+        print(estimations.head())
+#         solution = Solution()
         
         
 
