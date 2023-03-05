@@ -34,7 +34,7 @@ if col2.button('Run', key='run'):
             'Trust coefficient (%)'   
         ]
         estimations = pd.read_excel(probabilities_file)
-        weights = pd.read_excel(weights_file)
+        weights = pd.read_excel(weights_file).T
         p = {
             'm':weights.shape[0],
             'n':estimations.shape[0],
