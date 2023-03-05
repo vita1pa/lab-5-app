@@ -35,11 +35,8 @@ if col2.button('Run', key='run'):
         ]
         estimations = pd.read_excel(probabilities_file)
         
-        res_cols[0].dataframe(estimations.values)
-        
         weights = pd.read_excel(weights_file)
-        
-        res_cols[0].dataframe(weights)
+
         p = {
             'm':weights.shape[0],
             'n':estimations.shape[0],
@@ -64,9 +61,9 @@ if col2.button('Run', key='run'):
                 .applymap(lambda x: 'background-color: transparent' if pd.isnull(x) else '')
             )
             
-        for i in range(2, 7):
-            res_cols[i].write(col_names[i])
-            res_cols[i].write(values[i])
+        for i in range(5):
+            res_cols[i+2].write(col_names[i+2])
+            res_cols[i+2].write(values[i])
 
 
        
