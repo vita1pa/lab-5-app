@@ -34,11 +34,17 @@ if col2.button('Run', key='run'):
         ]
         estimations = pd.read_excel(probabilities_file)
         weights = pd.read_excel(weights_file)
-        
-        print(weights.head())
-        print(estimations.head())
+
 #         solution = Solution()
-        
+        dataframes = [weights.head(), weights.head(), weights.head(), weights.head(), weights.head(), estimations.head(), estimations.head()]
+        for i in range(7):
+            res_cols[i].write(col_names[i])
+            res_cols[i].dataframe(
+                dataframes[i].style
+                .format(precision=4)
+                .applymap(lambda x: 'color: transparent' if pd.isnull(x) else '')
+                .applymap(lambda x: 'background-color: transparent' if pd.isnull(x) else '')
+            )
         
 
 
