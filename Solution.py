@@ -25,7 +25,8 @@ class Solution:
         #коефіцієнти довіри до експертів
         self.weights = np.array(params['weights'])
         assert len(self.weights) == self.m, "Кількість коефіцієнтів довіри не рівна загальній кількості експертів"
-
+        self.weights = self.weights.T
+        
         #оцінки експертів по кожній з альтернатив (матриця)
         self.estimations = np.array(params['estimations'])
         assert self.estimations.shape == (self.n, self.m), "Розмірність матриці оцінок - не збігається з числом експертів або/і числом альтернатив"  
