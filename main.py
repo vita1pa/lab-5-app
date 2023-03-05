@@ -23,7 +23,7 @@ if col2.button('Run', key='run'):
     if (probabilities_file is None) or (weights_file is None):
         col2.error('Something is wrong in file. Review it and re-upload')
     else:
-        res_cols = st.columns(7)
+        res_cols = col2.columns(7)
         col_names = [
             'Aprior estimated $$p_i$$:',
             'Aprior estimated $$p_i$$ with respect to relations',
@@ -65,5 +65,31 @@ if col2.button('Run', key='run'):
             res_cols[i+2].write(col_names[i+2])
             res_cols[i+2].write(values[i])
 
+        test_res_cols = col2.columns(4)
+        
+        test_col_names = [
+            'Aprior estimated $$p_i$$:',
+            'Test $$p_i$$',
+            'Final $$p_i$$',
+            'Residual'   
+        ]
+        
+        aprior_probs = solution.aprior_probabilities.copy()
+        
+        #tests (for one of the events == 1):
+        for i in range(estimations.shape[0]):
+            col2.write("Test for $e_{}$ :",format(i+1))
+            new_probs = solution.test_prob_check(i, vocab = False, num_iterations = num_iterations )
+            dataframes = [ pd.DataFrame(aprior_probs, columns = ["P"]), pd.DataFrame(solution.aprior_probabilities, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]) - aprior_probs]
+            
+            for j in range(4):
+                test_res_cols[j].write(test_col_names[j])
+                test_res_cols[j].dataframe(
+                    dataframes[i].style
+                    .format(precision=4)
+                    .applymap(lambda x: 'color: transparent' if pd.isnull(x) else '')
+                    .applymap(lambda x: 'background-color: transparent' if pd.isnull(x) else '')
+                )
+            
 
        
