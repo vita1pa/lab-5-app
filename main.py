@@ -30,7 +30,7 @@ if col2.button('Run', key='run'):
             '$$L_1$$ error ( estimations in aprior probabilities error ) (%)',
             '$$L_2$$ error ( low probability events influence error ) (%)',
             '$$L_3$$ error ( independent events influence error ) (%)',
-            '$$L_4$$ error ( Monte-Carlo scenario simulation error ) (%),
+            '$$L_4$$ error ( Monte-Carlo scenario simulation error ) (%)',
             'Trust coefficient (%)'   
         ]
         
