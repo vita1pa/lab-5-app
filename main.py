@@ -52,9 +52,10 @@ if col2.button('Run', key='run'):
         solution.process(num_iterations = num_iterations, vocab = False)
         l1, l2, l3, l4, P = solution.estimate_truth_coeficient(vocab = False)
         
-        dataframes = [pd.DataFrame(solution.aprior_probabilities), pd.DataFrame(solution.new_aprior_probabilities), pd.DataFrame([l1]), pd.DataFrame([l2]), pd.DataFrame([l3]), pd.DataFrame([l4]), pd.DataFrame([P])]
+        dataframes = [pd.DataFrame(solution.aprior_probabilities, columns = ["P"]), pd.DataFrame(solution.new_aprior_probabilities, columns = ["P"])] 
+        values = [l1, l2, l3, l4, P]
         
-        for i in range(7):
+        for i in range(2):
             res_cols[i].write(col_names[i])
             res_cols[i].dataframe(
                 dataframes[i].style
@@ -62,7 +63,10 @@ if col2.button('Run', key='run'):
                 .applymap(lambda x: 'color: transparent' if pd.isnull(x) else '')
                 .applymap(lambda x: 'background-color: transparent' if pd.isnull(x) else '')
             )
-        
+            
+        for i in range(2, 7):
+            res_cols[i].write(col_names[i])
+            res_cols[i].write(values[i])
 
 
        
