@@ -52,7 +52,7 @@ if col2.button('Run', key='run'):
         solution.process(num_iterations = num_iterations, vocab = False)
         l1, l2, l3, l4, P = solution.estimate_truth_coeficient(vocab = False)
         
-        dataframes = [solution.aprior_probabilities, solution.new_aprior_probabilities, l1, l2, l3, l4, P]
+        dataframes = [pd.DataFrame(solution.aprior_probabilities), pd.DataFrame(solution.new_aprior_probabilities), pd.DataFrame([l1]), pd.DataFrame([l2]), pd.DataFrame([l3]), pd.DataFrame([l4]), pd.DataFrame([P])]
         
         for i in range(7):
             res_cols[i].write(col_names[i])
