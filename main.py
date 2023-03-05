@@ -78,7 +78,7 @@ if col2.button('Run', key='run'):
         
         #tests (for one of the events == 1):
         for i in range(estimations.shape[0]):
-            col2.write("Test for $e_{}$ :",format(i+1))
+            col2.write("Test for $e_{}$ :".format(i+1))
             new_probs = solution.test_prob_check(i, vocab = False, num_iterations = num_iterations )
             dataframes = [ pd.DataFrame(aprior_probs, columns = ["P"]), pd.DataFrame(solution.aprior_probabilities, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]),  pd.DataFrame(new_probs - aprior_probs, columns = ["$$\delta$$"])]
             
