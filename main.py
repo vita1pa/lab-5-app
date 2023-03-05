@@ -35,8 +35,8 @@ if col2.button('Run', key='run'):
         ]
         estimations = pd.read_excel(probabilities_file)
         
-        res_cols[0].write(weights)
-        res_cols[0].write(estimations)
+        res_cols[0].dataframe(weights)
+        res_cols[0].dataframe(estimations)
         
         weights = pd.read_excel(weights_file).T
         p = {
