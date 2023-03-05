@@ -23,7 +23,7 @@ if col2.button('Run', key='run'):
     if (probabilities_file is None) or (weights_file is None):
         col2.error('Something is wrong in file. Review it and re-upload')
     else:
-        res_cols = col2.columns(7)
+        res_cols = st.columns(7)
         col_names = [
             'Aprior estimated $$p_i$$:',
             'Aprior estimated $$p_i$$ with respect to relations',
@@ -65,7 +65,7 @@ if col2.button('Run', key='run'):
             res_cols[i+2].write(col_names[i+2])
             res_cols[i+2].write(values[i])
 
-        test_res_cols = col2.columns(4)
+        test_res_cols = st.columns(4)
         
         test_col_names = [
             'Aprior estimated $$p_i$$:',
