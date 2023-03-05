@@ -80,7 +80,7 @@ if col2.button('Run', key='run'):
         for i in range(estimations.shape[0]):
             col2.write("Test for $e_{}$ :",format(i+1))
             new_probs = solution.test_prob_check(i, vocab = False, num_iterations = num_iterations )
-            dataframes = [ pd.DataFrame(aprior_probs, columns = ["P"]), pd.DataFrame(solution.aprior_probabilities, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]) - aprior_probs]
+            dataframes = [ pd.DataFrame(aprior_probs, columns = ["P"]), pd.DataFrame(solution.aprior_probabilities, columns = ["P"]),  pd.DataFrame(new_probs, columns = ["P"]),  pd.DataFrame(new_probs - aprior_probs, columns = ["$$\delta$$"])]
             
             for j in range(4):
                 test_res_cols[j].write(test_col_names[j])
