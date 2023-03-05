@@ -35,7 +35,7 @@ if col2.button('Run', key='run'):
         ]
         estimations = pd.read_excel(probabilities_file)
         
-        res_cols[0].dataframe(estimations)
+        res_cols[0].dataframe(estimations.values)
         
         weights = pd.read_excel(weights_file)
         
@@ -43,8 +43,8 @@ if col2.button('Run', key='run'):
         p = {
             'm':weights.shape[0],
             'n':estimations.shape[0],
-            'weights': weights.T,
-            'estimations': estimations
+            'weights': list(weights['Weight']),
+            'estimations': estimations.values
         }
         
         solution = Solution(p)
