@@ -3,8 +3,6 @@ import math
 import pandas as pd
 import numpy as np
 from itertools import product, combinations
-from matplotlib import colors
-import matplotlib.pyplot as plt
 
 
 class Solution:
