@@ -38,8 +38,10 @@ if col2.button('Run', key='run'):
         res_cols[0].dataframe(estimations)
         
         weights = pd.read_excel(weights_file).T
+        
+        res_cols[0].dataframe(weights)
         p = {
-            'm':weights.shape[0],
+            'm':weights.shape[1],
             'n':estimations.shape[0],
             'weights': weights,
             'estimations': estimations
