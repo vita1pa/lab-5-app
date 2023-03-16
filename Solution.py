@@ -225,8 +225,6 @@ class Solution:
             max_1 = 0
             max_2 = 0
             for i in range(self.n):
-                if i == j:
-                    continue
                 
                 if to_max_1[j, i] > max_1:
                     max_1 = to_max_1[j, i]
