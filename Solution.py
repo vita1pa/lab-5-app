@@ -56,8 +56,8 @@ class Solution:
 
     def __initialize_conditional_probabilities(self):
         #ініціалізуємо випадково, враховуючи обмеження з апріорних ймовірностей
-        self.conditional_probabilities = np.identity((self.n, self.n))
-        self.conditional_probabilities_not = 1 - np.identity((self.n, self.n))
+        self.conditional_probabilities = np.identity(self.n)
+        self.conditional_probabilities_not = 1 - np.identity(self.n)
 #         self.conditional_probabilities = np.ones((self.n, self.n))
 #         self.conditional_probabilities_not = np.ones((self.n, self.n))
 #         for i in range(self.n):
