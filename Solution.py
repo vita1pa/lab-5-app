@@ -231,7 +231,7 @@ class Solution:
                 
                 if to_max_2[j, i] > max_2:
                     max_2 = to_max_2[j, i]
-            self.l1 +=  (max_1+max_2)/(2*self.weights[j]*self.n*10) 
+            self.l1 +=  (max_1+max_2)/(2*self.weights[j]*self.m) 
         
         #оцінки l2 -  похибка при малоймовірних подіях
         self.l2 = 0
