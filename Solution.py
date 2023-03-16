@@ -56,30 +56,32 @@ class Solution:
 
     def __initialize_conditional_probabilities(self):
         #ініціалізуємо випадково, враховуючи обмеження з апріорних ймовірностей
-        self.conditional_probabilities = np.ones((self.n, self.n))
-        self.conditional_probabilities_not = np.ones((self.n, self.n))
-        for i in range(self.n):
-            for j in range(self.n):
-                #Діагональні елементи не цікавлять, вважаємо одиницею (якщо відбулася подія a -то відбуласа подія a)
-                if i == j:
-                    continue
+        self.conditional_probabilities = np.identity((self.n, self.n))
+        self.conditional_probabilities_not = 1 - np.identity((self.n, self.n))
+#         self.conditional_probabilities = np.ones((self.n, self.n))
+#         self.conditional_probabilities_not = np.ones((self.n, self.n))
+#         for i in range(self.n):
+#             for j in range(self.n):
+#                 #Діагональні елементи не цікавлять, вважаємо одиницею (якщо відбулася подія a -то відбуласа подія a)
+#                 if i == j:
+#                     continue
 
-                #Визначаємо вищу та нижчу межі для генерації випадкового значення
-                low = (self.aprior_probabilities[i]-1+self.aprior_probabilities[j])/self.aprior_probabilities[j]
+#                 #Визначаємо вищу та нижчу межі для генерації випадкового значення
+#                 low = (self.aprior_probabilities[i]-1+self.aprior_probabilities[j])/self.aprior_probabilities[j]
                 
-                high = self.aprior_probabilities[i]/self.aprior_probabilities[j]
+#                 high = self.aprior_probabilities[i]/self.aprior_probabilities[j]
 
-                if high>=1:
-                    high = 1
+#                 if high>=1:
+#                     high = 1
 
-                if low <=0:
-                    low = 0
+#                 if low <=0:
+#                     low = 0
        
-                self.conditional_probabilities[i,j] = np.random.uniform(low = low,high = high)
+#                 self.conditional_probabilities[i,j] = np.random.uniform(low = low,high = high)
                 
-                denom = self.aprior_probabilities_not[j]
-                nom = (self.aprior_probabilities[i] - self.aprior_probabilities[j]*self.conditional_probabilities[i,j])
-                self.conditional_probabilities_not[i,j]= nom/denom
+#                 denom = self.aprior_probabilities_not[j]
+#                 nom = (self.aprior_probabilities[i] - self.aprior_probabilities[j]*self.conditional_probabilities[i,j])
+#                 self.conditional_probabilities_not[i,j]= nom/denom
                 
 
     def __initialize_conditional_odds(self):
